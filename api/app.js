@@ -11,7 +11,6 @@ connectDB();
 const routes = require("./routes");
 const app = express();
 
-
 const allowedOrigins = [
   "http://localhost:5173", // Frontend development URL
 ];
@@ -29,6 +28,12 @@ app.use("/uploads", express.static(uploadsDir)); // Serve uploads as static
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
+
+app.use(express.static(path.join(__dirname, "/client/dist/")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 app.use(logger("dev"));
 app.use(express.json());
