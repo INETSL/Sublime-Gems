@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-prev,
+.slick-next {
+  color: black !important;
+}
+
+/* Hide Arrows for Specific Slider */
+.no-arrows-slider .slick-arrow,
+.no-arrows-slider .slick-next,
+.no-arrows-slider .slick-prev {
+  display: none !important;
+}
